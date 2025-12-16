@@ -3,20 +3,20 @@ package eventbus
 import (
 	"errors"
 
-	"github.com/ProgrammerBuffalo/event-driven/event"
-	"github.com/ProgrammerBuffalo/event-driven/exchange"
-	"github.com/ProgrammerBuffalo/event-driven/queue"
+	"github.com/ProgrammerBuffalo/event-broker/event"
+	"github.com/ProgrammerBuffalo/event-broker/exchange"
+	"github.com/ProgrammerBuffalo/event-broker/queue"
 )
 
 type EventBus struct {
 	exchanges map[string]exchange.Exchange
-	queues map[string]*queue.Queue
+	queues    map[string]*queue.Queue
 }
 
 func NewEventBus() *EventBus {
 	return &EventBus{
 		exchanges: make(map[string]exchange.Exchange),
-		queues: make(map[string]*queue.Queue, 10),
+		queues:    make(map[string]*queue.Queue, 10),
 	}
 }
 
@@ -73,7 +73,7 @@ func (bus *EventBus) PublishEvent(excName string, rKey string, event event.Event
 		return err
 	}
 
-    err = exc.PublishEventToQueue(rKey, event)
+	err = exc.PublishEventToQueue(rKey, event)
 
 	if err != nil {
 		return err

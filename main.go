@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ProgrammerBuffalo/event-driven/event"
-	"github.com/ProgrammerBuffalo/event-driven/eventbus"
+	"github.com/ProgrammerBuffalo/event-broker/event"
+	"github.com/ProgrammerBuffalo/event-broker/eventbus"
 )
 
 func main() {

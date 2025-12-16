@@ -1,3 +1,3 @@
-module github.com/ProgrammerBuffalo/event-driven
+module github.com/ProgrammerBuffalo/event-broker
 
 go 1.24.1

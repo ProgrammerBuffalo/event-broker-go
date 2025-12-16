@@ -3,8 +3,8 @@ package exchange
 import (
 	"errors"
 
-	"github.com/ProgrammerBuffalo/event-driven/event"
-	"github.com/ProgrammerBuffalo/event-driven/queue"
+	"github.com/ProgrammerBuffalo/event-broker/event"
+	"github.com/ProgrammerBuffalo/event-broker/queue"
 )
 
 type Exchange struct {
@@ -14,7 +14,7 @@ type Exchange struct {
 
 func NewExchange(name string) *Exchange {
 	return &Exchange{
-		name: name,
+		name:   name,
 		queues: make(map[string]*queue.Queue),
 	}
 }

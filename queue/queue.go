@@ -1,7 +1,7 @@
 package queue
 
 import (
-	"github.com/ProgrammerBuffalo/event-driven/event"
+	"github.com/ProgrammerBuffalo/event-broker/event"
 )
 
 type Queue struct {
