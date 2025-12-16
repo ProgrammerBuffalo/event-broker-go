@@ -9,13 +9,13 @@ import (
 )
 
 type EventBus struct {
-	exchanges map[string]exchange.Exchange
+	exchanges map[string]*exchange.Exchange
 	queues    map[string]*queue.Queue
 }
 
 func NewEventBus() *EventBus {
 	return &EventBus{
-		exchanges: make(map[string]exchange.Exchange),
+		exchanges: make(map[string]*exchange.Exchange),
 		queues:    make(map[string]*queue.Queue, 10),
 	}
 }
@@ -25,7 +25,7 @@ func (bus *EventBus) AddNewExchange(excName string) error {
 		return errors.New("exchange already exists")
 	}
 
-	bus.exchanges[excName] = *exchange.NewExchange(excName)
+	bus.exchanges[excName] = exchange.NewExchange(excName)
 	return nil
 }
 
@@ -89,7 +89,7 @@ func (bus *EventBus) findExchange(excName string) (*exchange.Exchange, error) {
 		return nil, errors.New("exchange doesn't exist")
 	}
 
-	return &exc, nil
+	return exc, nil
 }
 
 func (bus *EventBus) findQueue(qName string) (*queue.Queue, error) {
